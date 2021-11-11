@@ -1,0 +1,41 @@
+{
+  "name": "track-work-remix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:css": "postcss styles --base styles --dir app/styles -w",
+    "build:css": "postcss styles --base styles --dir app/styles --env production",
+    "build:remix": "remix build",
+    "dev:remix": "remix dev",
+    "dev": "concurrently \"npm run watch:css\" \"npm run dev:remix\"",
+    "start": "cross-env NODE_ENV=production remix-serve ./build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@headlessui/react": "^1.4.2",
+    "@prisma/client": "^3.4.2",
+    "@remix-run/react": "^0.20.1",
+    "@remix-run/serve": "^0.20.1",
+    "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
+    "date-fns": "^2.25.0",
+    "prisma": "^3.4.2",
+    "react": "^17.0.2",
+    "react-bootstrap-icons": "^1.6.1",
+    "react-chartjs-2": "^3.3.0",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.0.0-beta.8",
+    "remix": "^0.20.1"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^0.20.1",
+    "@types/react": "^17.0.34",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.2",
+    "tailwindcss": "^2.2.19"
+  }
+}

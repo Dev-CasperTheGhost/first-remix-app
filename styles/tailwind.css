@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  table {
+    @apply w-full max-w-full overflow-auto;
+  }
+
+  th {
+    @apply p-2 px-3 font-semibold text-left bg-gray-200 select-none lg:table-cell;
+  }
+
+  th:first-child {
+    @apply rounded-tl-md rounded-bl-md;
+  }
+
+  th:last-child {
+    @apply rounded-tr-md rounded-br-md;
+  }
+
+  tr {
+    @apply table-row text-left;
+  }
+
+  td {
+    @apply p-2 px-3;
+  }
+}
