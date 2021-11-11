@@ -9,7 +9,8 @@
     "build:remix": "remix build",
     "dev:remix": "remix dev",
     "dev": "concurrently \"npm run watch:css\" \"npm run dev:remix\"",
-    "start": "cross-env NODE_ENV=production remix-serve ./build"
+    "build": "npm run build:css && npm run build:remix",
+    "start": "vercel dev"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,8 @@
     "@prisma/client": "^3.4.2",
     "@remix-run/react": "^0.20.1",
     "@remix-run/serve": "^0.20.1",
+    "@remix-run/vercel": "^0.20.1",
+    "@vercel/node": "^1.12.1",
     "concurrently": "^6.3.0",
     "cross-env": "^7.0.3",
     "date-fns": "^2.25.0",
@@ -36,6 +39,7 @@
     "autoprefixer": "^10.4.0",
     "postcss": "^8.3.11",
     "postcss-cli": "^9.0.2",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^2.2.19",
+    "vercel": "^23.1.2"
   }
 }
