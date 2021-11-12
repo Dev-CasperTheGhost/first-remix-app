@@ -9,3 +9,5 @@ node_modules
 /prisma/*.db-journal
 /app/styles/tailwind.css
 .vercel
+
+.env

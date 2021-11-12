@@ -1,9 +1,14 @@
 import { Week } from ".prisma/client";
-import { ActionFunction, LoaderFunction, useLoaderData } from "remix";
+import type { MetaFunction, ActionFunction, LoaderFunction } from "remix";
+import { redirect, useLoaderData } from "remix";
 import { WeekForm } from "~/components/WeekForm";
 import { Layout } from "~/components/Layout";
 import { WeeksData } from "~/components/WeeksData";
 import { prisma } from "~/lib/prisma.server";
+
+export const meta: MetaFunction = () => ({
+  title: "Week data",
+});
 
 export const loader: LoaderFunction = async () => {
   const weeks = await prisma.week.findMany();
@@ -19,14 +24,12 @@ export const action: ActionFunction = async ({ request }) => {
   const start = body.get("start");
   const days = body.get("days");
 
-  console.log({ earnings, hours, start });
-
   if (!earnings || !hours || !start) {
     // todo
     return null;
   }
 
-  const week = await prisma.week.create({
+  await prisma.week.create({
     data: {
       earnings: parseFloat(earnings),
       hours: parseFloat(hours),
@@ -35,13 +38,11 @@ export const action: ActionFunction = async ({ request }) => {
     },
   });
 
-  return week;
+  return redirect("/");
 };
 
 export default function Index() {
   const data = useLoaderData<Week[]>();
-
-  console.log(data);
 
   return (
     <Layout>

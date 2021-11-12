@@ -7,7 +7,7 @@ import { prisma } from "~/lib/prisma.server";
 import { Modal } from "~/components/Modal";
 import { WeekForm } from "~/components/WeekForm";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "react-bootstrap-icons";
+import { ArrowLeft } from "react-bootstrap-icons";
 
 export const meta: MetaFunction = () => ({
   title: "All weeks",
